@@ -18,8 +18,5 @@
 </script>
 
 <style>
-    .navbar{
-      background:#F08080;
-      color:rgb(255,255,255);
-    }
+
 </style>
