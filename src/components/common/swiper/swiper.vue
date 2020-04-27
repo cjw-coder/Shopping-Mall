@@ -22,7 +22,7 @@ export default {
         },
         animDuration:{ 
             type:Number,
-            default:300
+            default:420
         },
         moveRatio:{       
             type:Number,
@@ -60,8 +60,7 @@ export default {
         },
         scrollContent:function(currentPosition){
             this.scrolling = true;
-
-            this.swiperStyle.transition = 'transform' + this.animDuration + 'ms';
+            this.swiperStyle.transition = 'transform' + ' ' + this.animDuration + 'ms' + ' ' + 'linear';
             this.setTransform(currentPosition);
             this.checkPosition();
             this.scrolling = false;

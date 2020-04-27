@@ -42,9 +42,8 @@ export default {
 <style>
     @import "assets/css/base.css";
     html{font-size:26.666667vw;}
-    body{font-size:0.16rem;}
-    .navbar{
-      background:#F08080;
-      color:rgb(255,255,255);
+    body{
+      font-size:0.16rem;
+      padding-top:0.44rem;
     }
 </style>

@@ -25,6 +25,8 @@ export default {
 <style>
     .recommend{
         display: flex;
+        border-bottom:0.08rem solid #efefef;
+        padding-bottom:0.12rem;
     }
     .recommend div{
         flex:1;
