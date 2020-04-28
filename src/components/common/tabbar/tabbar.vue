@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style>
-
   #tabBar{
     display: flex;
     background:#f6f6f6;

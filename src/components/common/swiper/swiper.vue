@@ -148,7 +148,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     #swiper{
         overflow:hidden;
         position:relative;

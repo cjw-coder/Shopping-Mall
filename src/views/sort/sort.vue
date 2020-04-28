@@ -3,20 +3,83 @@
     <navbar>
       <div slot="center">分类</div>
     </navbar>
-    <h3>我是分类页面</h3>
+    <scroll>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+    </scroll>
   </div>
 </template>
 
 <script>
     import navbar from 'components/common/navbar/navbar'
+    import scroll from 'components/common/betterScroll/betterScroll'
     export default {
-        name:'cart',
+        name:'sort',
+        data(){
+          return{
+            scroll:null
+          }
+        },
         components:{
-          navbar
+          navbar,
+          scroll
         }
     }
 </script>
 
-<style>
-
+<style scoped>
+    .wrapper{
+      height:1.5rem;;
+      background:thistle;
+      overflow: hidden;
+      color:white;
+    }
 </style>

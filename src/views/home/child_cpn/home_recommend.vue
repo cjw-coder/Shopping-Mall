@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .recommend{
         display: flex;
         border-bottom:0.08rem solid #efefef;
@@ -32,7 +32,7 @@ export default {
         flex:1;
         text-align: center;
     }
-    .recommend img{
+    img{
         height:0.80rem;
         margin:0.06rem;
     }

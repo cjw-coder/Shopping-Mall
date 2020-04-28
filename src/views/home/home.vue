@@ -3,12 +3,17 @@
     <navbar>
       <div slot="center">尚品优选</div>
     </navbar>
-    <home-swiper :banner="banner"></home-swiper>
-    <home-recommend :recommend="recommend"></home-recommend>
-    <home-feature/>
-    
-    <tab-control :titles="['流行','新品','精选']" class="tabControl" @tabClick="tabClick"></tab-control>
-    <goods-list :goods="showGoods"></goods-list>
+    <scroll class="content" ref="scroll" :probe-type="3" @scroll="handleScroll">
+      <div class="banner">  <home-swiper :banner="banner"></home-swiper></div>
+      <home-recommend :recommend="recommend"></home-recommend>
+      <home-feature/>
+
+      <div class="tab-control">
+        <tab-control :titles="['流行','新品','精选']" class="tabControl" @tabClick="tabClick"></tab-control>
+      </div>
+      <goods-list :goods="showGoods"></goods-list>
+    </scroll>
+    <back-top @click.native="backTop" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -16,6 +21,8 @@
     import navbar from 'components/common/navbar/navbar'
     import tabControl from 'components/content/tabControl/tabControl'
     import goodsList from 'components/content/goods/goodsList'
+    import scroll from 'components/common/betterScroll/betterScroll'
+    import backTop from 'components/content/backTop/backTop'
 
     import homeSwiper from './child_cpn/home_swiper'
     import homeRecommend from './child_cpn/home_recommend'
@@ -34,13 +41,16 @@
               'new':{page:0,list:[]},
               'sell':{page:0,list:[]}
             },
-            currentType:'pop'
+            currentType:'pop',
+            isShowBackTop:false
           }
         },
         components:{
           navbar,
           tabControl,
           goodsList,
+          scroll,
+          backTop,
 
           homeSwiper,
           homeRecommend,
@@ -71,6 +81,12 @@
                 this.currentType = 'sell'
             }
           },
+          backTop(){
+            this.$refs.scroll.backTo(0,0)
+          },
+          handleScroll(position){
+            this.isShowBackTop = (-position.y) > 1000
+          },
             /*网络请求相关方法 */
           h_getHomeMultidata(){
             getHomeMultidata()
@@ -96,12 +112,23 @@
 </script>
 
 <style>
+    #home{
+      height:100vh;
+      box-sizing: border-box;
+    }
     #home .navbar{
       background:#F08080;
       color:rgb(255,255,255);
     }
-    .tabControl{
+  /*#home .banner{
+      /*padding-top:0.25rem;
+    }*/
+    #home .tabControl{
       position:sticky;
       top:0.44rem;
+    }
+    #home .content{
+      height: calc(100% - 0.65rem);
+      overflow: hidden;
     }
 </style>

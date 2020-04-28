@@ -57,6 +57,6 @@ export default {
         left: -0.15rem;
         width: 0.14rem;
         height: 0.14rem;
-        background:url('~assets/img/star.png') 0 0/0.12rem 0.12rem no-repeat;
+        background:url('~assets/img/common/star.png') 0 0/0.12rem 0.12rem no-repeat;
     }
 </style>

@@ -10,7 +10,7 @@
 <script>
     import navbar from 'components/common/navbar/navbar'
     export default {
-        name:'cart',
+        name:'profile',
         components:{
           navbar
         }
