@@ -26,7 +26,7 @@ export default {
     .goods{
         display: flex;
         flex-wrap: wrap;
-        justify-items: space-around;
+        align-content: space-around;
     }
 
 </style>

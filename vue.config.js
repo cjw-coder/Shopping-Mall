@@ -9,5 +9,6 @@ module.exports={
         .set('views',resolve('src/views'))
         .set('assets',resolve('src/assets'))
         .set('network',resolve('src/network'))
+        .set('common',resolve('src/common'))
     }
 }
