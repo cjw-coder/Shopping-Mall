@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-      <router-view></router-view>
-      <tabbar>
+      <keep-alive exclude="detail">
+        <router-view></router-view>
+      </keep-alive>
+      <tabbar v-show="isShow">
         <tabbar-item path="/home">
           <img slot="item-icon" src="~assets/img/tabbar/home.png">
           <img slot="item-icon-active" src="~assets/img/tabbar/home_active.png">
@@ -35,6 +37,20 @@ export default {
   components: {
       tabbar,
       tabbarItem
+  },
+  data(){
+    return{
+      isShow:true
+    }
+  },
+  watch:{
+    $route(to,from){
+      if(to.path == '/detail'){
+        this.isShow = false
+      }else{
+        this.isShow = true
+      }
+    }
   }
 }
 </script>
@@ -44,6 +60,5 @@ export default {
     html{font-size:26.666667vw;}
     body{
       font-size:0.16rem;
-      padding-top:0.44rem;
     }
 </style>

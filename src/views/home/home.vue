@@ -1,20 +1,15 @@
 <template>
   <div id="home">
-    <div>
-      <navbar>
-        <div slot="center">尚品优选</div>
-      </navbar>
-    </div>
+    <navbar>
+      <div slot="center">尚品优选</div>
+    </navbar>
+    <tab-control :titles="['流行','新品','精选']" class="tabControl" @tabClick="tabClick" ref="tabControl2" v-show="isTabFixed"></tab-control>
     <scroll class="content" ref="scroll" :probe-type="3" :pull-up-load="true" @scroll="handleScroll" @load="loadMore">
-      <div class="banner">  
-        <home-swiper :banner="banner"></home-swiper>
-      </div>
+      <home-swiper :banner="banner" @homeSwiperLoad="homeSwiperLoad"></home-swiper>
       <home-recommend :recommend="recommend"></home-recommend>
       <home-feature/>
 
-      <div class="tab-control">
-        <tab-control :titles="['流行','新品','精选']" class="tabControl" @tabClick="tabClick"></tab-control>
-      </div>
+      <tab-control :titles="['流行','新品','精选']" class="tabControl" @tabClick="tabClick" ref="tabControl"></tab-control>
       <goods-list :goods="showGoods"></goods-list>
     </scroll>
     <back-top @click.native="backTop" v-show="isShowBackTop"></back-top>
@@ -47,7 +42,11 @@
               'sell':{page:0,list:[]}
             },
             currentType:'pop',
-            isShowBackTop:false
+            isShowBackTop:false,
+            isSwiperLoad:true,
+            tabOffsetTop:0,
+            isTabFixed:false,
+            currentPos:0
           }
         },
         components:{
@@ -78,8 +77,21 @@
             return this.goods[this.currentType].list
           }
         },
+        activated(){
+          this.$refs.scroll.backTop(0,this.currentPos,0)
+          this.$refs.scroll.refresh()
+        },
+        deactivated(){
+          this.currentPos = this.$refs.scroll.scroll.y
+        },
         methods:{
             /*事件监听相关方法*/
+          homeSwiperLoad(){
+            if(this.isSwiperLoad){
+              this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
+            }
+            this.isSwiperLoad = false;
+          },
           tabClick(index){
             switch(index){
               case 0:
@@ -91,6 +103,8 @@
               case 2:
                 this.currentType = 'sell'
             }
+            this.$refs.tabControl.currentIndex = index;
+            this.$refs.tabControl2.currentIndex = index;
           },
           loadMore(){
             this.h_getHomeGoods(this.currentType)
@@ -101,7 +115,9 @@
           },
           handleScroll(position){
             this.isShowBackTop = (-position.y) > 1000
+            this.isTabFixed = (-position.y+18) > this.tabOffsetTop
           },
+          
             /*网络请求相关方法 */
           h_getHomeMultidata(){
             getHomeMultidata()
@@ -129,22 +145,13 @@
 <style>
     #home{
       height:100vh;
-      box-sizing: border-box;
     }
     #home .navbar{
       background:#F08080;
       color:rgb(255,255,255);
     }
-  /*#home .banner{
-      /*padding-top:0.25rem;
-    }*/
-    #home .tabControl{
-      position:sticky;
-      top:0.44rem;
-    }
     #home .content{
       height: calc(100% - 0.65rem);
       overflow: hidden;
     }
-
 </style>

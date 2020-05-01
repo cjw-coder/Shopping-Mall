@@ -20,11 +20,6 @@ export default {
         line-height:0.44rem;
         display: flex;
         text-align:center;
-        position:fixed;
-        left:0;
-        right:0;
-        top:0;
-        z-index:9;
     }
     .left,.right{
         width:0.60rem;

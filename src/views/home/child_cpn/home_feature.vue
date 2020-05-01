@@ -8,9 +8,7 @@
 
 <script>
 export default {
-    props:{
-
-    }
+    name:'home_feature'
 }
 </script>
 
