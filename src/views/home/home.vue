@@ -108,7 +108,7 @@
           },
           loadMore(){
             this.h_getHomeGoods(this.currentType)
-            this.$refs.scroll.finishLoad
+            this.$refs.scroll.finishLoad()
           },
           backTop(){
             this.$refs.scroll.backTop(0,0)

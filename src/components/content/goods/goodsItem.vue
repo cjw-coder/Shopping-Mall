@@ -3,7 +3,7 @@
       <img :src="goodsItem.src" @load="imageLoad">
       <div class="info">
         <p>{{goodsItem.info}}</p>
-        <span class="price">{{goodsItem.price}}</span>
+        <span class="price">{{goods_price}}</span>
         <span class="collect">{{goodsItem.collect}}</span>
       </div>
   </div>
@@ -32,6 +32,11 @@ export default {
                     num:this.goodsItem.num
                 }
             })
+        }
+    },
+    computed:{
+        goods_price:function(){
+            return `￥${this.goodsItem.current_price}.00`
         }
     }
 }

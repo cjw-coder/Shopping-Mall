@@ -1,17 +1,17 @@
 <template>
   <div class="detail_desc">
-        <div class="desc_title">{{info}} </div>
+        <div class="desc_title">{{this.goods.info}} </div>
         <div class="desc_price">
-            <span class="new_price">{{newPrice}}</span>
+            <span class="new_price">{{currentPrice}}</span>
             <span class="old_price">{{oldPrice}}</span>
         </div>
         <div class="desc_other">
-            <span>{{sale}}</span>
-            <span>{{collect}}</span>
+            <span>销量{{goods.sell}}</span>
+            <span>收藏{{goods.collect}}</span>
             <span>{{mark}}</span>
         </div>
         <div class="desc_service">
-            <span v-for="item in service" :key="item.index">
+            <span v-for="item in goods.service" :key="item.index">
                 <img src="~assets/img/detail/right.png">
                 {{item}}
             </span>
@@ -30,26 +30,15 @@ export default {
             }
         }
     },
-    data(){
-        return{
-            service:['运费险','全国包邮','七天无理由退货','支持认证']
-        }
+    updated(){
+        console.log(this.goods)
     },
     computed:{
-        info:function(){
-            return `2019年春秋季最新款式新品优惠${this.goods.info} 个性+时尚 ins风 简约`
-        },
-        newPrice:function(){
-            return `￥${this.goods.price}`
+        currentPrice:function(){
+            return `￥${this.goods.current_price}.00`
         },
         oldPrice:function(){
-            return `￥${Number(this.goods.price) + 10}.00`
-        },
-        collect(){
-            return `收藏${this.goods.collect}`
-        },
-        sale(){
-            return `销量${Number(this.goods.collect) + 10}`
+            return `￥${this.goods.old_price}.00`
         },
         mark(){
             return `24小时内发货`
@@ -98,8 +87,8 @@ export default {
         border-bottom:0.02rem solid rgba(125,125,125,0.1);
     }
     .desc_service img{
-        width:0.13rem;
-        height:0.13rem;
+        width:0.12rem;
+        height:0.12rem;
     }
     .desc_service span{
         padding:0 0.05rem;

@@ -5,68 +5,25 @@
             <div class="banner">
                 <img :src="goods.src" alt="">
             </div>
-            <detail-desc :goods = goods></detail-desc>
-            <ul>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-                <li>better-scroll测试</li>
-            </ul>
+            <detail-desc :goods = "goods"></detail-desc>
+            <detail-seller :goods = "goods"></detail-seller>
+            <detail-show :goods = "goods"></detail-show>
+            <detail-evaluate :goods = "goods"></detail-evaluate>
+            <detail-commend :goods = "goods"></detail-commend>
         </scroll>
   </div>
 </template>
 
 <script>
-import detailNav from './child_cpn/detail_nav'
 import {getDetailGoods,DetailInfo} from 'network/detail'
-import detailDesc from './child_cpn/detail_desc'
 import scroll from 'components/common/betterScroll/betterScroll'
+
+import detailNav from './child_cpn/detail_nav'
+import detailDesc from './child_cpn/detail_desc'
+import detailSeller from './child_cpn/detail_seller'
+import detailShow from './child_cpn/detail_show'
+import detailEvaluate from './child_cpn/detail_evaluate'
+import detailCommend from './child_cpn/detail_commend'
 
 export default {
     name:'detail',
@@ -76,9 +33,13 @@ export default {
         }
     },
     components:{
+        scroll,
         detailNav,
         detailDesc,
-        scroll
+        detailSeller,
+        detailShow,
+        detailEvaluate,
+        detailCommend
     },
     created(){
         const type = this.$route.query.type

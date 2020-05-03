@@ -3,7 +3,7 @@
     $type = $_GET['type'];
     $page = $_GET['page'];
     $num = $_GET['num'];
-    $goods_data = file_get_contents('./home_goods.json');
+    $goods_data = file_get_contents('./mini_base.json');
 
     $goods_arr = json_decode($goods_data);
 
