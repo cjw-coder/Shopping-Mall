@@ -22,7 +22,7 @@
     import goodsList from 'components/content/goods/goodsList'
     import scroll from 'components/common/betterScroll/betterScroll'
     import backTop from 'components/content/backTop/backTop'
-    import {debounce} from 'common/utils'
+    import {itemListerMixin} from 'common/mixin'
 
     import homeSwiper from './child_cpn/home_swiper'
     import homeRecommend from './child_cpn/home_recommend'
@@ -32,6 +32,7 @@
     import {getHomeMultidata,getHomeGoods} from 'network/home'
     export default {
         name:'home',
+        mixins:[itemListerMixin],
         data(){
           return {
             banner:[],
@@ -65,12 +66,6 @@
           this.h_getHomeGoods('pop')
           this.h_getHomeGoods('new')
           this.h_getHomeGoods('sell')
-        },
-        mounted(){
-          const refresh = debounce(this.$refs.scroll.refresh)
-          this.$bus.$on('itemImageLoad',() => {
-              refresh()
-            })
         },
         computed:{
           showGoods(){

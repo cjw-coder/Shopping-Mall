@@ -21,7 +21,11 @@ export default {
     },
     methods:{
         imageLoad(){
-            this.$bus.$emit('itemImageLoad')
+            if(this.$route.path == "/home"){
+                this.$bus.$emit('itemImageLoad')
+            }else if(this.$route.path == '/detail'){
+                this.$bus.$emit("commendImageLoad")
+            }
         },
         toDetail(){
             this.$router.push({

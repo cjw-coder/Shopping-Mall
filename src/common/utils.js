@@ -1,8 +1,8 @@
 export function debounce(fn,delay){
-    const timer = null;
+    let timer = null;
     return function(...args){
         if(timer) clearTimeout(timer)
-        setTimeout(()=>{
+        timer = setTimeout(()=>{
             fn.apply(this,args)
         },delay)
     }

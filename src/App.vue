@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <keep-alive exclude="detail">
-        <router-view></router-view>
+        <router-view :key="$route.fullPath"></router-view>
       </keep-alive>
       <tabbar v-show="isShow">
         <tabbar-item path="/home">

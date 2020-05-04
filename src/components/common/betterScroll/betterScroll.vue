@@ -38,7 +38,6 @@ export default {
         }
         this.scroll.on('pullingUp',()=>{
             this.$emit('load')
-            console.log('触发了上拉加载事件')
         })
     },
     methods:{
@@ -50,6 +49,9 @@ export default {
         },
         refresh(){
             this.scroll &&  this.scroll.refresh()
+        },
+        scrollTo(x,y,delay){
+            this.scroll && this.scroll.scrollTo(x,y,delay)
         }
     }
 }

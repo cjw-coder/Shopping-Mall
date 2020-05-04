@@ -5,7 +5,9 @@
                  <img src="~assets/img/detail/back.png" style="width:0.3rem;height:0.3rem;margin-top:0.06rem;" @click="backHome">
             </div>
             <div slot="center" class="title">
-                <div v-for="(item,index) in titles" :key="index" :class="{active:index==currentIndex}" @click="navClick(index)">{{item}}</div>
+                <div v-for="(item,index) in titles" :key="index" :class="{active:index==getCurrentIndex || index==currentIndex}" @click="navClick(index)">
+                    {{item}}
+                </div>
             </div>
         </navbar>
     </div>
@@ -15,10 +17,16 @@
 import navbar from 'components/common/navbar/navbar'
 export default {
     name:'detail_nav',
+    props:{
+        getCurrentIndex:{
+            type:Number,
+            default:0
+        }
+    },
     data(){
         return{
             titles:['商品','参数','评论','推荐'],
-            currentIndex:0
+            currentIndex:null
         }
     },
     methods:{
@@ -26,7 +34,10 @@ export default {
             this.$router.go(-1)
         },
         navClick(index){
-            this.currentIndex = index
+            if(this.currentIndex = 0){
+                this.currentIndex = index
+            }
+            this.$emit('navClick',index)
         }
     },
     components:{
@@ -35,7 +46,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .detail_nav{
         border-bottom:0.01rem solid gainsboro;
     }
