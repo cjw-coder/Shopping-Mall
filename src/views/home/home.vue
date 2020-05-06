@@ -146,7 +146,7 @@
       color:rgb(255,255,255);
     }
     #home .content{
-      height: calc(100% - 0.65rem);
+      height: calc(100% - 0.44rem);
       overflow: hidden;
     }
 </style>

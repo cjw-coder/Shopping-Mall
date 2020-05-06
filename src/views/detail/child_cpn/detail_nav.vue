@@ -5,7 +5,7 @@
                  <img src="~assets/img/detail/back.png" style="width:0.3rem;height:0.3rem;margin-top:0.06rem;" @click="backHome">
             </div>
             <div slot="center" class="title">
-                <div v-for="(item,index) in titles" :key="index" :class="{active:index==getCurrentIndex || index==currentIndex}" @click="navClick(index)">
+                <div v-for="(item,index) in titles" :key="index" :class="{active:index==getCurrentIndex}" @click="navClick(index)">
                     {{item}}
                 </div>
             </div>
@@ -25,8 +25,8 @@ export default {
     },
     data(){
         return{
-            titles:['商品','参数','评论','推荐'],
-            currentIndex:null
+            titles:['商品','详情','评论','推荐'],
+          
         }
     },
     methods:{
@@ -34,9 +34,6 @@ export default {
             this.$router.go(-1)
         },
         navClick(index){
-            if(this.currentIndex = 0){
-                this.currentIndex = index
-            }
             this.$emit('navClick',index)
         }
     },

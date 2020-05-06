@@ -1,0 +1,5 @@
+export const ADD_COUNTER = 'addCounter'
+export const ADD_CART = 'addCart'
+export const HANDLE_CHECK = 'handleCheck'
+export const CHECKED_ALL = 'checkedAll'
+export const CHECKED_ALL_CANCEL = 'checkedAllCancel'

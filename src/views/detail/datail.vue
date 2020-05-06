@@ -12,6 +12,7 @@
             <detail-commend :goods = "goods" ref="commend"></detail-commend>
         </scroll>
         <detail-bottombar @addCart = "addCart"></detail-bottombar>
+        <toast :isToastShow = "isToastShow">添加购物车成功</toast>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import {getDetailGoods,DetailInfo} from 'network/detail'
 import {itemListerMixin} from 'common/mixin'
 import {debounce} from 'common/utils'
 import scroll from 'components/common/betterScroll/betterScroll'
+import toast from 'components/common/toast/toast'
 
 import detailNav from './child_cpn/detail_nav'
 import detailDesc from './child_cpn/detail_desc'
@@ -36,7 +38,9 @@ export default {
         return{
             goods:{},
             navPos:[],
-            currentIndex:0
+            navClickIndex:0,
+            currentIndex:0,
+            isToastShow:false
         }
     },
     components:{
@@ -47,7 +51,8 @@ export default {
         detailShow,
         detailEvaluate,
         detailCommend,
-        detailBottombar
+        detailBottombar,
+        toast
     },
     mounted(){
         const type = this.$route.query.type
@@ -57,27 +62,32 @@ export default {
     },
     methods:{
         addCart(){
-            console.log('sss')
-            console.log(this.goods)
             const addGoods = {}
             addGoods.type = this.goods.type
             addGoods.page = this.goods.page
             addGoods.num = this.goods.num
             addGoods.price = this.goods.current_price
-            addGoods.img = this.goods.src
+            addGoods.src = this.goods.src
             addGoods.info = this.goods.info
             console.log(addGoods)
+            this.$store.dispatch("addCart",addGoods).then(() => {
+                this.isToastShow = true
+                setTimeout(()=>{
+                    this.isToastShow = false
+                },1000)
+            })
 
         },
         getNavPos(){
              if(this.navPos.length < 4){
-                this.navPos.push(0)
+                this.navPos.push(-40)
                 this.navPos.push(this.$refs.show.$el.offsetTop)
                 this.navPos.push(this.$refs.evaluate.$el.offsetTop)
                 this.navPos.push(this.$refs.commend.$el.offsetTop)
             }
         },
         handleScroll(position){
+            this.currentIndex = this.navClickIndex
             this.getNavPos()
             const positionY = -position.y
             const navLength = this.navPos.length
@@ -97,6 +107,7 @@ export default {
         },
         navClick(index){
             this.getNavPos()
+            this.navClickIndex = index
             this.$refs.scroll.scrollTo(0,-this.navPos[index],400)
         }
     }
