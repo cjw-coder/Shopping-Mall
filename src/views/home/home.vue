@@ -70,7 +70,7 @@
         computed:{
           showGoods(){
             return this.goods[this.currentType].list
-          }
+            }
         },
         activated(){
           this.$refs.scroll.backTop(0,this.currentPos,0)
@@ -117,7 +117,6 @@
           h_getHomeMultidata(){
             getHomeMultidata()
             .then(res => {
-              console.log(res)
               this.banner = res.data.data.banner.list
               this.recommend = res.data.data.recommend.list
             })
@@ -128,7 +127,6 @@
           h_getHomeGoods(type){
             const page = this.goods[type].page + 1;
             getHomeGoods(type,page).then(res => {
-                console.log(res);
                 this.goods[type].list.push(...res.data)
                 this.goods[type].page += 1
             })

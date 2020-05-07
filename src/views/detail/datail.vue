@@ -63,13 +63,12 @@ export default {
     methods:{
         addCart(){
             const addGoods = {}
-            addGoods.type = this.goods.type
-            addGoods.page = this.goods.page
-            addGoods.num = this.goods.num
-            addGoods.price = this.goods.current_price
-            addGoods.src = this.goods.src
-            addGoods.info = this.goods.info
-            console.log(addGoods)
+                addGoods.type = this.goods.type
+                addGoods.page = this.goods.page
+                addGoods.num = this.goods.num
+                addGoods.price = this.goods.current_price
+                addGoods.src = this.goods.src
+                addGoods.info = this.goods.info
             this.$store.dispatch("addCart",addGoods).then(() => {
                 this.isToastShow = true
                 setTimeout(()=>{

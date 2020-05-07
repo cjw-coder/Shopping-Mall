@@ -9,11 +9,6 @@
           <img slot="item-icon-active" src="~assets/img/tabbar/home_active.png">
           <div slot="item-text">首页</div>
         </tabbar-item>
-        <tabbar-item path="/sort">
-          <img slot="item-icon" src="~assets/img/tabbar/sort.png">
-          <img slot="item-icon-active" src="~assets/img/tabbar/sort_active.png">
-          <div slot="item-text">分类</div>
-        </tabbar-item>
          <tabbar-item path="/cart">
           <img slot="item-icon" src="~assets/img/tabbar/cart.png">
           <img slot="item-icon-active" src="~assets/img/tabbar/cart_active.png">

@@ -15,7 +15,6 @@ export default{
         payload.count = 1
         payload.isChecked = false
         state.cartList.push(payload)
-        console.log(state.cartList)
     },
     [HANDLE_CHECK](state,payload){
         for(let item of state.cartList){

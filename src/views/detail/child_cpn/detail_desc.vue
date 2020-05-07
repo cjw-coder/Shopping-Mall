@@ -30,9 +30,6 @@ export default {
             }
         }
     },
-    updated(){
-        console.log(this.goods)
-    },
     computed:{
         currentPrice:function(){
             return `￥${this.goods.current_price}.00`
