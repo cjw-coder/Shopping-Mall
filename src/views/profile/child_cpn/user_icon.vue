@@ -3,7 +3,9 @@
       <img src="~assets/img/profile/icon.png">
       <div class="info">
           <div class="left">
-            <span>登录/注册</span>
+            <span>
+                <a href="https://plogin.m.jd.com/login/login?appid=300&returnurl=https%3A%2F%2Fwqlogin2.jd.com%2Fpassport%2FLoginRedirect%3Fstate%3D1100560547173%26returnurl%3Dhttps%253A%252F%252Fjdcs.m.jd.com%252Fchat%252Findex.action%253FvenderId%253D37335%2526entry%253Dm_shop%2526sceneval%253D2&source=wq_passport">登录/注册</a>
+            </span>
             <div>
                 <img src="~assets/img/profile/phone.png">
                 <span>暂未绑定手机号</span>
@@ -28,6 +30,9 @@ export default {
         color:#fff;
         padding:0.1rem;
         border-bottom:0.01rem solid rgba(125,125,125,0.2);
+    }
+    a{
+        color:#fff;
     }
     img{
         width:0.55rem;

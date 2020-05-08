@@ -1,8 +1,6 @@
 import {
     ADD_COUNTER,
-    ADD_CART,
-    CHECKED_ALL,
-    CHECKED_ALL_CANCEL
+    ADD_CART
 } from './mutations-types'
 
 export default {
@@ -17,15 +15,6 @@ export default {
             context.commit(ADD_COUNTER,addedGoods)
         }else{
             context.commit(ADD_CART,payload)
-        }
-    },
-    isCheckAll(context){
-        for(let i=0;i<context.state.cartList.length;i++){
-            if(context.state.cartList[i].isChecked == false){
-                context.commit(CHECKED_ALL)
-            }else{
-                context.commit(CHECKED_ALL_CANCEL)
-            }
         }
     }
 }

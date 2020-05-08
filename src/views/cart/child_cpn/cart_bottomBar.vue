@@ -18,7 +18,7 @@ export default {
     },
     methods:{
       handleCheck(){
-        this.$store.dispatch('isCheckAll')
+        this.$store.commit('isCheckAll')
       }
     },
     computed:{

@@ -1,9 +1,7 @@
 import {
     ADD_COUNTER,
     ADD_CART,
-    HANDLE_CHECK,
-    CHECKED_ALL,
-    CHECKED_ALL_CANCEL
+    HANDLE_CHECK
 } from './mutations-types'
 
 export default{ 
@@ -23,14 +21,13 @@ export default{
             }
         }
     },
-    [CHECKED_ALL](state){
+    isCheckAll(state){
         for(let i=0;i<state.cartList.length;i++){
-            state.cartList[i].isChecked = true
-        }
-    },
-    [CHECKED_ALL_CANCEL](state){
-        for(let i=0;i<state.cartList.length;i++){
-            state.cartList[i].isChecked = false
+            if(state.cartList[i].isChecked == false){
+                state.cartList[i].isChecked = true
+            }else{
+                state.cartList[i].isChecked = false
+            }
         }
     }
 }
