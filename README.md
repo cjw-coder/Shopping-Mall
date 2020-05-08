@@ -1,4 +1,4 @@
-# vue_mall
+# Shopping-Mall
 
 ## 项目描述
 ```
