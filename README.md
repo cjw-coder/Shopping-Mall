@@ -3,12 +3,12 @@
 ## 项目描述
 ```
 基于Vue2.x开发的移动端商城项目，使用到的相关技术有Vue-cli4、Vue-router、Vuex、axios等，
-后端接口采用原生PHP编程语言进行开发，数据库的存储是使用JSON文件进行简单的模拟，充当临时的数据存储。
+后端接口采用原生PHP编程语言进行开发，数据库的存储则是创建JSON文件进行简单的模拟，充当临时的数据存储。
 ```
 
 ### 相关插件和库的使用
 ```
-针对移动端的应用场景，采用了lazy-load,better-scroll,fastclick，postcss等插件，
+针对移动端的应用场景，使用了lazy-load,better-scroll,fastclick，postcss等插件，
 css样式的统一则是通过normalize.css的样式库来实现。
 ```
 
