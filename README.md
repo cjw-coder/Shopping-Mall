@@ -1,19 +1,21 @@
 # vue_mall
 
-## Project setup
+## 项目描述
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+基于Vue2.x开发的移动端商城项目，使用到的相关技术有Vue-cli4、Vue-router、Vuex、axios等，
+后端接口采用原生PHP编程语言进行开发，数据库的存储是使用JSON文件进行简单的模拟，充当临时的数据存储。
 ```
 
-### Compiles and minifies for production
+### 相关插件和库的使用
 ```
-npm run build
+针对移动端的应用场景，采用了lazy-load,better-scroll,fastclick，postcss等插件，
+css样式的统一则是通过normalize.css的样式库来实现。
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 项目总结
+```
+该项目是一个具有组件化和单页面富应用(SPA)这两个特点的独立个人项目。
+但还有部分内容和功能是可以进一步完善和扩展，比如后端接口可以采用thinkphp6框架进行构建，
+使用MySQL去创建独立的数据库，进而去实现用户注册登录，以及商品数据存储等功能。
+```
+
