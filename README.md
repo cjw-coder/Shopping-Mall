@@ -26,6 +26,10 @@ css样式的统一则是通过normalize.css的样式库来实现。
 
 ![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%851.JPG)
 
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%852.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%853.JPG)
+
 ![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%B4%AD%E7%89%A9%E8%BD%A61.JPG)
 
 ![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%B4%AD%E7%89%A9%E8%BD%A62.JPG)
