@@ -18,4 +18,24 @@ css样式的统一则是通过normalize.css的样式库来实现。
 但还有部分内容和功能是可以进一步完善和扩展，比如后端接口可以采用框架进行构建，
 使用MySQL去创建独立的数据库，进而去实现用户注册登录，以及商品数据存储等功能。
 ```
+### 项目展示
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E9%A6%96%E9%A1%B51.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E9%A6%96%E9%A1%B52.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%851.JPG)
+
+![image](hhttps://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%852.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%AF%A6%E6%83%853.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%B4%AD%E7%89%A9%E8%BD%A61.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%B4%AD%E7%89%A9%E8%BD%A62.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E8%B4%AD%E7%89%A9%E8%BD%A63.JPG)
+
+![image](https://github.com/cjw-coder/Shopping-Mall/blob/master/%E6%88%91%E7%9A%84.JPG)
+
 
