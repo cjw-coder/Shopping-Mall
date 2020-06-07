@@ -1,5 +1,12 @@
 # Shopping-Mall
 
+## 启动
+```
+  需要在服务器环境或集成环境下运行，
+  开发环境：npm run serve
+  生产环境：npm run build
+```
+
 ## 项目描述
 ```
 基于Vue2.x开发的移动端商城项目，使用到的相关技术有Vue-cli4、Vue-router、Vuex、axios等，
