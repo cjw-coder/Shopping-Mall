@@ -21,6 +21,7 @@ export default {
         display: flex;
         text-align:center;
     }
+    /*左右插槽固定宽度，中间插槽占据剩余空间*/
     .left,.right{
         width:0.60rem;
     }

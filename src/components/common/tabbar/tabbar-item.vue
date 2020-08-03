@@ -34,15 +34,15 @@ export default {
 
 <style scoped>
     .tabbar-item{
-        flex:1;
+        flex: 1;
         text-align: center;
-        height:0.49rem;
-        font-size:0.12rem;
-        margin-top:0.05rem;
+        height: 0.49rem;
+        font-size: 0.12rem;
+        margin-top: 0.05rem;
     }
     .tabbar-item img{
-        width:0.24rem;
-        height:0.24rem;
+        width: 0.24rem;
+        height: 0.24rem;
     }
     .active{
         color:#F08080;

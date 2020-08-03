@@ -17,19 +17,26 @@
 </template>
 
 <script>
+    //公共组件
     import navbar from 'components/common/navbar/navbar'
+    import scroll from 'components/common/betterScroll/betterScroll'
+    
+    //当前项目组件
     import tabControl from 'components/content/tabControl/tabControl'
     import goodsList from 'components/content/goods/goodsList'
-    import scroll from 'components/common/betterScroll/betterScroll'
     import backTop from 'components/content/backTop/backTop'
-    import {itemListerMixin} from 'common/mixin'
 
+    //当前页面组件
     import homeSwiper from './child_cpn/home_swiper'
     import homeRecommend from './child_cpn/home_recommend'
     import homeFeature from './child_cpn/home_feature'
+    
+    //公共js文件
+    import {itemListerMixin} from 'common/mixin'
 
-
+    //请求文件
     import {getHomeMultidata,getHomeGoods} from 'network/home'
+
     export default {
         name:'home',
         mixins:[itemListerMixin],
@@ -56,7 +63,6 @@
           goodsList,
           scroll,
           backTop,
-
           homeSwiper,
           homeRecommend,
           homeFeature
@@ -69,7 +75,7 @@
         },
         computed:{
           showGoods(){
-            return this.goods[this.currentType].list
+              return this.goods[this.currentType].list
             }
         },
         activated(){
@@ -80,7 +86,43 @@
           this.currentPos = this.$refs.scroll.scroll.y
         },
         methods:{
-            /*事件监听相关方法*/
+          //网络请求相关方法，使用async/await处理回调
+          async h_getHomeMultidata(){
+            try{
+              const res = await getHomeMultidata()
+              this.banner = res.data.data.banner.list
+              this.recommend = res.data.data.recommend.list
+            }catch(err){
+              console.log(err)
+            }
+            /*
+            使用promise处理回调
+            getHomeMultidata()
+            .then(res => {
+              this.banner = res.data.data.banner.list
+              this.recommend = res.data.data.recommend.list
+            })
+            .catch(err => {
+              console.log(err)
+            })*/
+          },
+          async h_getHomeGoods(type){
+            const page = this.goods[type].page + 1
+            try{
+              const res = await getHomeGoods(type,page)
+              this.goods[type].list.push(...res.data)
+              this.goods[type].page += 1
+            }catch(err){
+              console.log(err)
+            }
+            /*
+            const page = this.goods[type].page + 1
+            getHomeGoods(type,page).then(res => {
+                this.goods[type].list.push(...res.data)
+                this.goods[type].page += 1
+            })*/
+          },
+          //事件监听相关方法
           homeSwiperLoad(){
             if(this.isSwiperLoad){
               this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
@@ -111,25 +153,6 @@
           handleScroll(position){
             this.isShowBackTop = (-position.y) > 1000
             this.isTabFixed = (-position.y+18) > this.tabOffsetTop
-          },
-          
-            /*网络请求相关方法 */
-          h_getHomeMultidata(){
-            getHomeMultidata()
-            .then(res => {
-              this.banner = res.data.data.banner.list
-              this.recommend = res.data.data.recommend.list
-            })
-            .catch(err => {
-              console.log(err)
-            })
-          },
-          h_getHomeGoods(type){
-            const page = this.goods[type].page + 1;
-            getHomeGoods(type,page).then(res => {
-                this.goods[type].list.push(...res.data)
-                this.goods[type].page += 1
-            })
           }
         }
     }
